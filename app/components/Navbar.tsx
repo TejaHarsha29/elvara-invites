@@ -5,7 +5,7 @@ export default function Navbar() {
         <img
             src="/images/elvara-logo.png"
             alt="Elvara"
-            className="h-20 w-auto object-contain"
+            className="h-10 w-auto object-contain"
         />
           {/* <div className="flex items-center gap-6 text-sm md:gap-10">
             <a href="#">Home</a>
@@ -15,5 +15,5 @@ export default function Navbar() {
           </div> */}
         </div>
       </nav>
-    );
+    )
   }
