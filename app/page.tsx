@@ -5,6 +5,8 @@ import GiftsSection from "./components/GiftsSection";
 import ExploreSection from "./components/ExploreSection";
 import Footer from "./components/Footer";
 import Categories from "./components/Categories";
+import WeddingInvitations from "./components/WeddingInvitations";
+
 
 export default function Home() {
 
@@ -13,10 +15,11 @@ export default function Home() {
 
       <Navbar />
 
-<HeroSection />
+      <HeroSection />
 
       {/* Dynamic Categories Section (fetches on client) */}
       <Categories />
+      <WeddingInvitations />
 
       <CollectionsSection />
 

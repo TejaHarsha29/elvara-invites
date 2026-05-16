@@ -13,7 +13,7 @@ export default function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % banners.length);
-    }, 4000);
+    }, 10000);
 
     return () => clearInterval(timer);
   }, []);
