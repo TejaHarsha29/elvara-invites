@@ -1,44 +1,6 @@
-export default function WeddingInvitations() {
-  const products = [
-    {
-      title: "Sacred union",
-      subtitle: "With divine blessings",
-      image: "/images/shiva-parvati.jpeg",
-      category: "weddingInvitations",
-    },
-    {
-      title: "Krishna Radha",
-      subtitle: "Divine Artistic Concepts",
-      image: "/images/shiva-parvati.jpeg",
-      category: "weddingInvitations",
-    },
-    {
-      title: "SHIVA PARVATHI",
-      subtitle: "Promises lasts",
-      image: "/images/shiva-parvati.jpeg",
-      category: "weddingInvitations",
-    },
-    {
-      title: "PVC Luxury",
-      subtitle: "PVC Premium Invitations",
-      image: "/images/shiva-parvati.jpeg",
-      category: "weddingInvitations",
-    },
-    {
-      title: "BALA KRISHNA",
-      subtitle: "Traditional Divine Art",
-      image: "/images/shiva-parvati.jpeg",
-      category: "weddingInvitations",
-    },
+import { products } from "../constants/product-list";
 
-    /* Different category example */
-    {
-      title: "Return Hampers",
-      subtitle: "Luxury Wedding Curation",
-      image: "/images/shiva-parvati.jpeg",
-      category: "weddingCuration",
-    },
-  ];
+export default function WeddingInvitations() {
 
   /* Show only wedding invitations */
   const invitations = products.filter(
