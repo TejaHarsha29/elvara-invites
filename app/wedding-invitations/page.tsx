@@ -1,9 +1,25 @@
+"use client";
+import { useState } from "react";
 import { products } from "../constants/product-list";
+import EnquiryModal from "../components/EnquiryModal";
 
 export default function WeddingInvitationsPage() {
   const invitations = products.filter(
     (item) => item.category === "weddingInvitations"
   );
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
+
+  const openModal = (product: any) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    // Reset selected product
+    setSelectedProduct(null);
+  };
 
   return (
     <main className="min-h-screen bg-[#F8F5F0] px-4 py-10 md:px-8 lg:px-12">
@@ -65,11 +81,29 @@ export default function WeddingInvitationsPage() {
           {item.moq}
         </p>
         </div>
+        <button
+            onClick={() => openModal(item)}
+            className="
+              mt-3 w-full rounded-full
+              border border-[#6E1F28]
+              px-3 py-2 text-[10px]
+              font-medium text-[#6E1F28]
+              transition hover:bg-[#6E1F28]
+              hover:text-white"
+        >
+                Send Enquiry
+        </button>
       </div>
     </div>
   ))}
 </div>
-      </div>
+</div>
+
+<EnquiryModal
+  isOpen={isModalOpen}
+  selectedProduct={selectedProduct}
+  onClose={closeModal}
+/>
     </main>
   );
 }

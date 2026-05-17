@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import EnquiryModal from "./EnquiryModal";
 import { products } from "../constants/product-list";
 
 export default function WeddingInvitations() {
@@ -6,7 +10,13 @@ export default function WeddingInvitations() {
   const invitations = products.filter(
     (item) => item.category === "weddingInvitations"
   );
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
+  const openModal = (product: any) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
   return (
     <section className="px-4 py-12 md:px-8 lg:px-12">
       <div className="mx-auto max-w-7xl">
@@ -45,8 +55,10 @@ export default function WeddingInvitations() {
           >
             {invitations.slice(0, 2).map((item, index) => (
               <div
-                key={index}
-                className="
+              key={index}
+              onClick={() => openModal(item)}
+              className="
+                cursor-pointer
                   overflow-hidden rounded-[24px]
                   bg-white shadow-sm
                   flex flex-col
@@ -85,8 +97,10 @@ export default function WeddingInvitations() {
           >
             {invitations.slice(2, 4).map((item, index) => (
               <div
-                key={index}
-                className="
+              key={index}
+              onClick={() => openModal(item)}
+              className="
+                cursor-pointer
                   overflow-hidden rounded-[24px]
                   bg-white shadow-sm
                   flex flex-col
@@ -126,9 +140,11 @@ export default function WeddingInvitations() {
 
             {/* 5th Card */}
             {invitations.slice(4, 5).map((item, index) => (
-              <div
-                key={index}
-                className="
+             <div
+             key={index}
+             onClick={() => openModal(item)}
+             className="
+               cursor-pointer
                   overflow-hidden rounded-[24px]
                   bg-white shadow-sm
                   flex flex-col
@@ -194,6 +210,15 @@ export default function WeddingInvitations() {
           </div>
         </div>
       </div>
+    
+      <EnquiryModal
+  isOpen={isModalOpen}
+  selectedProduct={selectedProduct}
+  onClose={() => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  }}
+/>
     </section>
   );
 }
